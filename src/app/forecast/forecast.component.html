@@ -1,0 +1,15 @@
+<div *ngIf="state$ | async as state" class="content" >
+    <app-forecast-loading *ngIf="isLoadingState(state.state)" class="content-center">
+    </app-forecast-loading>
+
+    <app-forecast-error *ngIf="isErrorState(state.state)" [error]="state.context.error" class="content-center">
+    </app-forecast-error>
+
+    <app-forecast-no-location *ngIf="isNoLocation(state.state)" class="content-center">
+    </app-forecast-no-location>
+
+    <app-forecast-display *ngIf="isDataLoaded(state.state)" [weatherData]="state.context.data">
+    </app-forecast-display>
+
+
+</div>

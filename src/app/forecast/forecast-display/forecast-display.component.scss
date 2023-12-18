@@ -1,0 +1,74 @@
+.forecast-display {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 20px auto;
+  width: 80%; /* Adjust the width as needed */
+  max-width: 800px; /* Maximum width of the component */
+}
+
+/* Chart Container Styles */
+.chart-container {
+  display: block;
+  position: relative;
+
+  canvas {
+    max-width: 100%;
+  }
+}
+
+/* Chart.js Specific Styles */
+.chartjs-render-monitor {
+  background-color: #f9f9f9; /* Light background for the chart */
+  border: 1px solid #ccc; /* Light border for the chart */
+  border-radius: 4px;
+}
+
+/* Axis Styles */
+.ct-labels {
+  color: #666;
+  font-size: 0.75rem;
+}
+
+/* Line and Points Styles */
+.ct-series-a .ct-line {
+  fill: none;
+  stroke: #800080; /* Purple line color */
+  stroke-width: 2px;
+}
+
+.ct-series-a .ct-point {
+  stroke: #800080;
+  stroke-width: 3px;
+  stroke-linecap: round;
+}
+
+/* Tooltip Styles */
+.ct-tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  background: #fff;
+  color: #333;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, 0);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .forecast-display {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .chart-container {
+    padding: 0;
+  }
+
+  .ct-labels {
+    font-size: 0.65rem; /* Smaller font size for mobile */
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "/v4": {
+    "target": "https://api.tomorrow.io",
+    "changeOrigin": true,
+    "secure": true,
+    "logLevel": "debug"
+  }
+}

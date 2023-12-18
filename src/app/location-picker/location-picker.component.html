@@ -1,0 +1,9 @@
+<div class="select-location">
+    <mat-select [formControl]="locationControl">
+
+        <mat-option *ngIf="nothingSelected" value="" i18n>No selection</mat-option>
+        <mat-option class="aaa" *ngFor="let location of (locations$ | async)" [value]="location">
+            {{location}}</mat-option>
+    </mat-select>
+</div>
+
