@@ -1,12 +1,17 @@
-<div  *ngIf="_weatherData">
+<ng-container *ngIf="weatherData">
+  <div class="main-container">
+    <div class="main-info">
+      <div class="floating-text main-info__location-text">
+        {{ weatherData.location }}
+      </div>
+      <div class="floating-text main-info__degrees-text">
+        {{getCurrentTemperature()}}°C
+      </div>
+      <div>
+        Felt like: {{ getCurrentFeltTemperature() }}°C
+      </div>
+    </div>
+    <app-forecast-hours-data [timeline]="weatherData.data.timelines[0]"></app-forecast-hours-data>
 
-  <canvas baseChart
-          type="line"
-          [datasets]="lineChartData"
-          [labels]="lineChartLabels"
-          [options]="lineChartOptions"
-          [legend]="lineChartLegend"
-  >
-  </canvas>
-
-</div>
+  </div>
+</ng-container>

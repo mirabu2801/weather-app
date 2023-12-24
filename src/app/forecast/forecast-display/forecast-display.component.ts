@@ -2,9 +2,11 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@ang
 import {Chart, ChartDataset, ChartOptions} from "chart.js";
 
 import zoomPlugin from 'chartjs-plugin-zoom';
-import {WeatherResponse} from "../forecast-api.service";
+import {WeatherData,} from "../forecast-api.service";
 import {NgChartsModule} from "ng2-charts";
-import {NgIf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
+import {ForecastWeatherTypeIconComponent} from "./forecast-weather-type-icon/forecast-weather-type-icon.component";
+import {ForecastHoursDataComponent} from "./forecast-hours-data/forecast-hours-data.component";
 
 Chart.register(zoomPlugin)
 
@@ -14,25 +16,22 @@ Chart.register(zoomPlugin)
     styleUrls: ['./forecast-display.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [
-        NgChartsModule,
-        NgIf
-    ]
+  imports: [
+    NgChartsModule,
+    NgIf,
+    NgForOf,
+    ForecastWeatherTypeIconComponent,
+    ForecastHoursDataComponent
+  ]
 })
 export class ForecastDisplayComponent  {
 
     constructor(private cd: ChangeDetectorRef) {
     }
 
-    _weatherData: WeatherResponse | undefined
     @Input()
-    set weatherData(data: WeatherResponse | undefined) {
-        this._weatherData = data;
-        if (data) {
-            this.populateChartData(data);
-        }
-        this.cd.markForCheck();
-    }
+    weatherData: WeatherData | undefined
+
 
     lineChartData: ChartDataset[] = [
         {data: [], label: $localize`Temperature`},
@@ -83,11 +82,11 @@ export class ForecastDisplayComponent  {
 
     }
 
-    private populateChartData(data: WeatherResponse): void {
-        this.lineChartLabels = data.data.timelines[0].intervals.map(entry => this.formatDateString(entry.startTime));
-        this.lineChartData[0].data = data.data.timelines[0].intervals.map(entry => entry.values.temperature);
-        this.lineChartData[1].data = data.data.timelines[0].intervals.map(entry => entry.values.temperatureApparent);
-        this.cd.markForCheck();
-    }
+  getCurrentTemperature(): string {
+    return this.weatherData!.data.timelines[0].intervals[0].values.temperature.toFixed(0);
+  }
 
+  getCurrentFeltTemperature(): string {
+    return this.weatherData!.data.timelines[0].intervals[0].values.temperatureApparent.toFixed(0);
+  }
 }

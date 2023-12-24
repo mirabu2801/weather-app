@@ -1,0 +1,55 @@
+:host {
+  width: 100%;
+}
+
+.weather-card {
+  border-radius: 5px;
+  width: 100%;
+  height: 170px;
+  background: #009fffaa;
+  box-sizing: border-box;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+
+
+
+  &__hours-list {
+    display: flex;
+    width: 100%;
+    overflow-y: scroll;
+    gap: 15px;
+    flex-grow: 1;
+
+    &__item {
+      display: flex;
+      color: white;
+      flex-direction: column;
+      font-size: 20px;
+      align-items: center;
+      height: 100%;
+      justify-content: space-between;
+      padding: 3px 0;
+      box-sizing: border-box;
+      min-width: 50px;
+      &__icon {
+        font-size: 45px;
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    padding-bottom: 9px;
+    padding-left: 11px;
+
+    &__icon {
+      padding-right: 5px;
+    }
+
+    &__text {
+      margin-bottom: 3px;
+    }
+  }
+}

@@ -97,7 +97,14 @@ export class ForecastStateMachineService {
                 loadWeatherData: fromPromise(() => {
                     const location = this.locationService.selectedLocation$.value;
                     if (location) {
-                        return firstValueFrom(this.weatherService.getWeatherData(location));
+                        return firstValueFrom(this.weatherService.getWeatherData(location)).then(
+                          response => {
+                            return {
+                              ...response,
+                              location,
+                            }
+                          }
+                        );
                     } else {
                         return Promise.resolve(null);
                     }
