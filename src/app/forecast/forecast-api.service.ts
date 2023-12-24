@@ -19,11 +19,13 @@ export interface Timeline {
 
 export interface Interval {
   startTime: string;
-  values: {
-    temperature: number;
-    temperatureApparent: number;
-    weatherCode: number;
-  };
+  values: WeatherValues;
+}
+
+export interface WeatherValues {
+  temperature: number;
+  temperatureApparent: number;
+  weatherCode: number;
 }
 
 @Injectable({

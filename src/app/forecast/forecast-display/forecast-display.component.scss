@@ -1,5 +1,5 @@
 .main-container {
-  background: rgb(0, 0, 0) url('/assets/cloudy.jpg') no-repeat;
+  background: rgb(0, 0, 0) var(--background-image) no-repeat;
   background-size: cover;
   color: white;
   height: 100%;
