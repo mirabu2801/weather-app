@@ -26,11 +26,11 @@ Chart.register(zoomPlugin)
 })
 export class ForecastDisplayComponent {
 
-  static CLOUDY_PATH = 'assets/cloudy.png';
-  static FULL_CLOUDY_PATH = 'assets/full_cloudy.png';
-  static RAIN_PATH = 'assets/rain.png';
-  static SNOW_PATH = 'assets/snow.png';
-  static SUNNY_PATH = 'assets/sunny.png';
+  static CLOUDY_PATH = '/assets/cloudy.png';
+  static FULL_CLOUDY_PATH = '/assets/full_cloudy.png';
+  static RAIN_PATH = '/assets/rain.png';
+  static SNOW_PATH = '/assets/snow.png';
+  static SUNNY_PATH = '/assets/sunny.png';
 
 
   constructor() {
