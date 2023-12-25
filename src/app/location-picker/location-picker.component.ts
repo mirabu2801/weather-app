@@ -58,7 +58,7 @@ export class LocationPickerComponent implements OnDestroy {
     }
 
     emitLocation(location: string | null): void {
-        this.locationService.emitLocation(location);
+        this.locationService.updateLocation(location);
     }
 
     locations$ = new BehaviorSubject<string[] | null>(null);
