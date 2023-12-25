@@ -23,4 +23,7 @@ export class HeaderComponent implements OnInit {
     ngOnInit(): void {
     }
 
+  isUSA(): boolean {
+    return document.location.pathname.startsWith('/en');
+  }
 }

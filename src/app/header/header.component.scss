@@ -1,4 +1,12 @@
 .header {
   display: flex;
   justify-content: space-between;
+  &__left {
+    display: flex;
+    gap: 7px;
+  }
+}
+
+.transparent {
+  opacity: 0.3;
 }
